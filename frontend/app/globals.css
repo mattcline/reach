@@ -1,0 +1,360 @@
+@import 'tailwindcss';
+@import "tw-animate-css";
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer utilities {
+  .home {
+    @apply bg-linear-to-b/oklch from-neutral-950/10 to-neutral-900/10;
+  }
+
+  /* Display navigation buttons on hover */
+  .swiper-button-prev {
+    opacity: 0.2;
+  }
+
+  .swiper-button-prev:hover {
+    opacity: 1;
+  }
+
+  .swiper-button-next {
+    opacity: 0.2;
+  }
+
+  .swiper-button-next:hover {
+    opacity: 1;
+  }
+
+  .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Disable arrows in number input */
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  /* Glass card variant */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  }
+
+  .dark .glass-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* custom styles */
+  --blue-accent: var(--color-blue-500);
+  --destructive-foreground: var(--color-neutral-50);
+  --success: var(--color-green-600);
+  --success-foreground: var(--color-neutral-50);
+  --sidebar-background: --alpha(var(--color-neutral-100) / 50%);
+}
+
+.dark {
+  --background: #121316; /* spline.design */
+  --foreground: oklch(0.985 0 0);
+  --card: #191a1e; /* spline.design */
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+
+  /* custom styles */
+  --blue-accent: var(--color-blue-500);
+  --destructive-foreground: var(--color-neutral-50);
+  --success: var(--color-green-700);
+  --success-foreground: var(--color-neutral-50);
+  --sidebar-background: --alpha(var(--color-neutral-800) / 50%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-blue-accent: var(--blue-accent);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-sidebar: var(--sidebar-background);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  --color-neutral-750: oklch(0.320 0 0);
+  --color-neutral-850: oklch(0.237 0 0);
+
+  --text-tiny: 0.625rem;
+
+  --animate-show: show 0.2s ease-in-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+/*
+  ---break---
+*/
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Typography defaults */
+  h1 {
+    @apply text-3xl font-bold tracking-tight text-foreground lg:text-4xl mb-6 mt-8 first:mt-0;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold tracking-tight text-foreground lg:text-3xl mb-4 mt-8 first:mt-0;
+  }
+
+  h3 {
+    @apply text-xl font-semibold tracking-tight text-foreground lg:text-2xl mb-3 mt-6 first:mt-0;
+  }
+
+  h4 {
+    @apply text-lg font-semibold tracking-tight text-foreground lg:text-xl mb-3 mt-6 first:mt-0;
+  }
+
+  h5 {
+    @apply text-base font-semibold tracking-tight text-foreground lg:text-lg mb-2 mt-4 first:mt-0;
+  }
+
+  h6 {
+    @apply text-sm font-semibold tracking-tight text-foreground lg:text-base mb-2 mt-4 first:mt-0;
+  }
+
+  p {
+    @apply text-base leading-relaxed text-foreground/90 mb-4;
+  }
+
+  a {
+    @apply text-foreground/90 underline-offset-4 hover:text-foreground transition-colors;
+  }
+
+  strong {
+    @apply font-semibold text-foreground;
+  }
+
+  em {
+    @apply italic;
+  }
+
+  blockquote {
+    @apply border-l-4 border-muted pl-6 italic text-muted-foreground my-6;
+  }
+
+  code {
+    @apply rounded bg-muted px-1.5 py-0.5 font-mono text-sm text-foreground;
+  }
+
+  pre {
+    @apply overflow-x-auto rounded-lg bg-muted p-4;
+  }
+
+  pre code {
+    @apply bg-transparent p-0;
+  }
+
+  ul {
+    @apply list-disc space-y-2 pl-6 text-foreground/90 mb-6;
+  }
+
+  ol {
+    @apply list-decimal space-y-2 pl-6 text-foreground/90 mb-6;
+  }
+
+  li {
+    @apply leading-relaxed;
+  }
+
+  hr {
+    @apply my-8 border-border;
+  }
+
+  /* mark elements have a dark color by default but that doesn't work for dark mode */
+  mark {
+    @apply bg-yellow-200 text-foreground dark:bg-yellow-900/30;
+  }
+
+  /* Table styles */
+  table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  th {
+    @apply border-b px-4 py-2 text-left font-semibold text-foreground;
+  }
+
+  td {
+    @apply border-b px-4 py-2 text-muted-foreground;
+  }
+
+  /* Form elements */
+  label {
+    @apply text-sm font-medium text-foreground;
+  }
+
+  input, textarea, select {
+    @apply text-foreground;
+  }
+
+  /* Small text */
+  small {
+    @apply text-sm text-muted-foreground;
+  }
+}

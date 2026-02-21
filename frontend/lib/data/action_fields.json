@@ -1,0 +1,26 @@
+{
+  "heading": "Create Action",
+  "subheading": "Create a new action",
+  "fields": [
+    {
+      "type": "text",
+      "name": "title",
+      "title": "Title",
+      "placeholder": "Enter a title",
+      "required": true,
+      "validation": {
+        "type": "string",
+        "min": 3,
+        "max": 100
+      },
+      "error": "Title must be between 3 and 100 characters"
+    },
+    {
+      "type": "date",
+      "name": "due_date",
+      "title": "Due Date",
+      "placeholder": "Enter the date the action is due",
+      "required": true
+    }
+  ]
+}

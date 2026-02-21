@@ -1,0 +1,16 @@
+{
+  "fields": [
+    {
+      "type": "email",
+      "name": "email",
+      "title": "Email",
+      "placeholder": "user@domain.com",
+      "direction": "row",
+      "required": true,
+      "validation": {
+        "type": "email"
+      },
+      "error": "Please enter a valid email address"
+    }
+  ]
+}

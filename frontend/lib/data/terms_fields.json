@@ -1,0 +1,12 @@
+{
+  "fields": [
+    {
+      "type": "checkbox",
+      "name": "signature",
+      "required": true,
+      "required_message": "You must agree to the terms and conditions.",
+      "title": "I have read and agree to the terms and conditions.",
+      "error": "You must agree to the terms and conditions."
+    }
+  ]
+}

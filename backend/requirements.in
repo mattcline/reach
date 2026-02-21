@@ -1,0 +1,29 @@
+Django==4.2.2
+psycopg[binary,pool]
+channels[daphne]
+python-dotenv
+openai
+django-cors-headers
+redis
+channels-redis
+beautifulsoup4
+boto3 # aws
+
+# DRF
+djangorestframework
+markdown
+django-filter
+django-ratelimit
+
+gunicorn
+dj-database-url
+whitenoise
+
+stripe
+
+# Google API
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+
+pyjwt

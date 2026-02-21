@@ -1,0 +1,42 @@
+{
+  "heading": "Opt in",
+  "fields": [
+    {
+      "type": "text",
+      "name": "first_name",
+      "title": "First Name",
+      "placeholder": "Enter your first name",
+      "required": true,
+      "validation": {
+        "type": "string",
+        "min": 3,
+        "max": 20
+      },
+      "error": "Name must be between 3 and 20 characters"
+    },
+    {
+      "type": "text",
+      "name": "last_name",
+      "title": "Last Name",
+      "placeholder": "Enter your last name",
+      "required": true,
+      "validation": {
+        "type": "string",
+        "min": 3,
+        "max": 20
+      },
+      "error": "Name must be between 3 and 20 characters"
+    },
+    {
+      "type": "number",
+      "name": "number",
+      "title": "Number",
+      "placeholder": "Enter your phone number",
+      "required": true,
+      "validation": {
+        "type": "number"
+      },
+      "error": "Please enter a valid phone number"
+    }
+  ]
+}

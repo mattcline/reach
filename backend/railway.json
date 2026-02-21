@@ -1,0 +1,5 @@
+{
+  "deploy": {
+    "startCommand": ". /opt/venv/bin/activate && python manage.py migrate && python manage.py collectstatic --noinput && daphne -b 0.0.0.0 -p $PORT pairdraft.asgi:application"
+  }
+}
